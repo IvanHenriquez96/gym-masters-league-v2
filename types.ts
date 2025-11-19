@@ -39,7 +39,6 @@ export enum TabView {
   DASHBOARD = 'DASHBOARD',
   STANDINGS = 'STANDINGS',
   SCHEDULE = 'SCHEDULE',
-  ORACLE = 'ORACLE', // AI Assistant
 }
 
 export interface ChatMessage {

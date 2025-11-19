@@ -3,12 +3,11 @@ import { TabView } from './types';
 import { Leaderboard } from './components/Leaderboard';
 import { Schedule } from './components/Schedule';
 import { PlayerSpotlight } from './components/PlayerSpotlight';
-import { Oracle } from './components/Oracle';
 import { StoreCarousel } from './components/StoreCarousel';
 import { HypeMatch } from './components/HypeMatch';
 import { Promotions } from './components/Promotions';
 import { SocialLinks } from './components/SocialLinks';
-import { LayoutDashboard, Calendar, Sparkles, Trophy, ArrowRight } from 'lucide-react';
+import { LayoutDashboard, Calendar, Trophy, ArrowRight } from 'lucide-react';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabView>(TabView.DASHBOARD);
@@ -94,8 +93,6 @@ const App: React.FC = () => {
         return <Leaderboard />;
       case TabView.SCHEDULE:
         return <Schedule />;
-      case TabView.ORACLE:
-        return <Oracle />;
       default:
         return <div />;
     }
@@ -136,7 +133,6 @@ const App: React.FC = () => {
           <nav className="hidden md:flex items-center gap-1 bg-slate-800/50 p-1 rounded-full border border-slate-700/50">
             <NavButton tab={TabView.DASHBOARD} label="Inicio" icon={LayoutDashboard} />
             <NavButton tab={TabView.SCHEDULE} label="Calendario" icon={Calendar} />
-            <NavButton tab={TabView.ORACLE} label="Oráculo IA" icon={Sparkles} />
           </nav>
 
           {/* Live Indicator */}
@@ -172,13 +168,6 @@ const App: React.FC = () => {
         >
           <Calendar className="w-6 h-6" />
           <span className="text-[10px] font-medium">Fechas</span>
-        </button>
-        <button 
-          onClick={() => setActiveTab(TabView.ORACLE)}
-          className={`p-2 rounded-lg flex flex-col items-center gap-1 transition-colors ${activeTab === TabView.ORACLE ? 'text-purple-400' : 'text-slate-500 hover:text-slate-300'}`}
-        >
-          <Sparkles className="w-6 h-6" />
-          <span className="text-[10px] font-medium">Oráculo</span>
         </button>
       </div>
     </div>
